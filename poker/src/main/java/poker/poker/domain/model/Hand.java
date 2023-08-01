@@ -9,12 +9,9 @@ public class Hand {
 
 	private List<Card> hand;
 
-	 public Hand(Deck deck, int numberOfCards) {
-	        hand = new ArrayList<>();
-	        for (int i = 0; i < numberOfCards; i++) {
-	            addCard(deck.drawCard());
-	        }
-	    }
+	public Hand() {
+		hand = new ArrayList<>();
+	}
 
 	public void addCard(Card card) {
 		hand.add(card);
