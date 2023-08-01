@@ -115,6 +115,27 @@ public class HandService {
 
 	private boolean isFullHouse(Hand hand) {
 		List<Card> cards = hand.getCards();
+		if (!isValidHand(cards)) {
+			return false;
+		}
+		int[] counts = new int[15];
+
+		for (Card card : cards) {
+			counts[card.getNumber()]++;
+		}
+
+		boolean hasThree = false;
+		boolean hasTwo = false;
+
+		for (int count : counts) {
+			if (count == 3) {
+				hasThree = true;
+			} else if (count == 2) {
+				hasTwo = true;
+			}
+		}
+
+		return hasThree && hasTwo;
 	}
 
 	private boolean isFlush(Hand hand) {
@@ -138,6 +159,9 @@ public class HandService {
 
 	private boolean isStraight(Hand hand) {
 		List<Card> cards = hand.getCards();
+		if (!isValidHand(cards)) {
+			return false;
+		}
 	}
 
 	private boolean isThreeOfAKind(Hand hand) {
