@@ -4,13 +4,14 @@ public class Card {
 
 	private int suit;
 
-	private int number;
-
 	final int CLUBS = 1;
 	final int DIAMONDS = 2;
 	final int HEARTS = 3;
 	final int SPADES = 4;
 
+	private int number;
+
+	//Constructor including validation that throws an IllegalArgumentException if values are not on range
 	public Card(int suit, int number) {
 		if (suit < CLUBS || suit > SPADES) {
 			throw new IllegalArgumentException("Invalid suit value");
@@ -21,6 +22,14 @@ public class Card {
 
 		this.suit = suit;
 		this.number = number;
+	}
+
+	public int getSuit() {
+		return suit;
+	}
+
+	public int getNumber() {
+		return number;
 	}
 
 }
