@@ -8,7 +8,7 @@ import poker.poker.domain.model.Hand;
 public class HandService {
 
 	public int evaluateHand(Hand hand) {
-		int score = 0;
+		int score;
 		sortHand(hand);
 		if (isRoyalFlush(hand))
 			score = 10;
@@ -40,14 +40,7 @@ public class HandService {
 		if (!isValidHand(cards)) {
 			return false;
 		}
-		int suitOfFirstCard = cards.get(0).getSuit();
 
-		// Verify if all 5 cards have the same suit property
-		for (Card card : cards) {
-			if (card.getSuit() != suitOfFirstCard) {
-				return false;
-			}
-		}
 		// Verify the royal flush sequence
 		int counterDecrementer = 14; // Ace value and going down
 		for (Card card : cards) {
@@ -57,21 +50,13 @@ public class HandService {
 			counterDecrementer--;
 		}
 
-		return true;
+		return isSameSuit(cards);
 	}
 
 	private boolean isStraightFlush(Hand hand) {
 		List<Card> cards = hand.getCards();
 		if (!isValidHand(cards)) {
 			return false;
-		}
-		int suitOfFirstCard = cards.get(0).getSuit();
-
-		// Verify if all 5 cards have the same suit property
-		for (Card card : cards) {
-			if (card.getSuit() != suitOfFirstCard) {
-				return false;
-			}
 		}
 
 		int expectedNumber = cards.get(0).getNumber(); // Expecting the highest number first
@@ -83,7 +68,7 @@ public class HandService {
 			expectedNumber--;
 		}
 
-		return true;
+		return isSameSuit(cards);
 
 	}
 
@@ -237,7 +222,7 @@ public class HandService {
 
 		for (int count : counts) {
 			if (count == 2) {
-				hasPairOne = true;
+				return true;
 			}
 		}
 
@@ -246,6 +231,16 @@ public class HandService {
 
 	private boolean isValidHand(List<Card> cards) {
 		return cards != null && cards.size() == 5;
+	}
+
+	private boolean isSameSuit(List<Card> cards) {
+		int suitOfFirstCard = cards.get(0).getSuit();
+		for (Card card : cards) {
+			if (card.getSuit() != suitOfFirstCard) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	public void sortHand(Hand hand) {
