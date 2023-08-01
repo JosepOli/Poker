@@ -4,7 +4,6 @@ public class Player {
 
 	private String name;
 	private int balance;
-
 	private Hand hand;
 
 	public Player(String name, int balance) {
