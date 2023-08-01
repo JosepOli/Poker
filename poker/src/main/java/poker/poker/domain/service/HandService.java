@@ -62,12 +62,55 @@ public class HandService {
 
 	private boolean isStraightFlush(Hand hand) {
 		List<Card> cards = hand.getCards();
-		int counterDecrementer;
+		if (!isValidHand(cards)) {
+			return false;
+		}
+		int suitOfFirstCard = cards.get(0).getSuit();
+
+		// Verify if all 5 cards have the same suit property
+		for (Card card : cards) {
+			if (card.getSuit() != suitOfFirstCard) {
+				return false;
+			}
+		}
+
+		int expectedNumber = cards.get(0).getNumber(); // Expecting the highest number first
+
+		for (Card card : cards) {
+			if (card.getNumber() != expectedNumber) {
+				return false;
+			}
+			expectedNumber--;
+		}
+
+		return true;
 
 	}
 
 	private boolean isFourOfAKind(Hand hand) {
 		List<Card> cards = hand.getCards();
+		if (!isValidHand(cards)) {
+			return false;
+		}
+
+		int[] counts = new int[15];
+
+		for (Card card : cards) {
+			counts[card.getNumber()]++;
+		}
+
+		boolean hasFour = false;
+		boolean hasOne = false;
+
+		for (int count : counts) {
+			if (count == 4) {
+				hasFour = true;
+			} else if (count == 1) {
+				hasOne = true;
+			}
+		}
+
+		return hasFour && hasOne;
 	}
 
 	private boolean isFullHouse(Hand hand) {
