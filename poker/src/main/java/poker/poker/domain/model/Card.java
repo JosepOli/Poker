@@ -1,4 +1,4 @@
-package poker.poker.domain;
+package poker.poker.domain.model;
 
 public class Card {
 	
@@ -12,7 +12,9 @@ public class Card {
 	final int SPADES = 4;
 	
 	public Card(int suit, int number) {
-		
+		if(suit < CLUBS || suit > SPADES) {
+			
+		}
 	}
 	
 
