@@ -12,23 +12,23 @@ public class HandService {
 		sortHand(hand);
 		if (isRoyalFlush(hand))
 			score = 10;
-		if (isStraightFlush(hand))
+		else if (isStraightFlush(hand))
 			score = 9;
-		if (isFourOfAKind(hand))
+		else if (isFourOfAKind(hand))
 			score = 8;
-		if (isFullHouse(hand))
+		else if (isFullHouse(hand))
 			score = 7;
-		if (isFlush(hand))
+		else if (isFlush(hand))
 			score = 6;
-		if (isStraight(hand))
+		else if (isStraight(hand))
 			score = 5;
-		if (isThreeOfAKind(hand))
+		else if (isThreeOfAKind(hand))
 			score = 4;
-		if (isTwoPair(hand))
+		else if (isTwoPair(hand))
 			score = 3;
-		if (isPair(hand))
+		else if (isPair(hand))
 			score = 2;
-		if (isHighCard(hand))
+		else
 			score = 1;
 		// TODO
 		return score;
@@ -162,22 +162,86 @@ public class HandService {
 		if (!isValidHand(cards)) {
 			return false;
 		}
+		int expectedNumber = cards.get(0).getNumber(); // Expecting the highest number first
+
+		for (Card card : cards) {
+			if (card.getNumber() != expectedNumber) {
+				return false;
+			}
+			expectedNumber--;
+		}
+
+		return true;
 	}
 
 	private boolean isThreeOfAKind(Hand hand) {
 		List<Card> cards = hand.getCards();
+		if (!isValidHand(cards)) {
+			return false;
+		}
+
+		int[] counts = new int[15];
+
+		for (Card card : cards) {
+			counts[card.getNumber()]++;
+		}
+
+		boolean hasThree = false;
+
+		for (int count : counts) {
+			if (count == 3) {
+				hasThree = true;
+			}
+		}
+
+		return hasThree;
 	}
 
 	private boolean isTwoPair(Hand hand) {
 		List<Card> cards = hand.getCards();
+		if (!isValidHand(cards)) {
+			return false;
+		}
+		int[] counts = new int[15];
+
+		for (Card card : cards) {
+			counts[card.getNumber()]++;
+		}
+		boolean hasTwoPair = false;
+
+		int pairs = 0;
+		for (int count : counts) {
+			if (count == 2) {
+				pairs++;
+			}
+		}
+		if (pairs == 2) {
+			hasTwoPair = true;
+		}
+
+		return hasTwoPair;
 	}
 
 	private boolean isPair(Hand hand) {
 		List<Card> cards = hand.getCards();
-	}
+		if (!isValidHand(cards)) {
+			return false;
+		}
 
-	private boolean isHighCard(Hand hand) {
-		List<Card> cards = hand.getCards();
+		int[] counts = new int[15];
+
+		for (Card card : cards) {
+			counts[card.getNumber()]++;
+		}
+		boolean hasPairOne = false;
+
+		for (int count : counts) {
+			if (count == 2) {
+				hasPairOne = true;
+			}
+		}
+
+		return hasPairOne;
 	}
 
 	private boolean isValidHand(List<Card> cards) {
@@ -197,5 +261,4 @@ public class HandService {
 			}
 		}
 	}
-
 }
