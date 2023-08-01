@@ -4,10 +4,10 @@ public class Card {
 
 	private int suit;
 
-	final int CLUBS = 1;
-	final int DIAMONDS = 2;
-	final int HEARTS = 3;
-	final int SPADES = 4;
+	public final static int CLUBS = 1;
+	public final static int DIAMONDS = 2;
+	public final static int HEARTS = 3;
+	public final static int SPADES = 4;
 
 	private int number;
 
