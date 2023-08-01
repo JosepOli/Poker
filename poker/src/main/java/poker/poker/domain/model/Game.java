@@ -1,5 +1,6 @@
 package poker.poker.domain.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
@@ -8,4 +9,8 @@ public class Game {
 	private int currentBet;
 	private int gameState;
 
+	public Game(Deck deck) {
+		this.players = new ArrayList<>();
+		this.deck = deck;
+	}
 }
