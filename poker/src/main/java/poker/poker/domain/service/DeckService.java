@@ -11,7 +11,6 @@ public class DeckService {
 	private Deck deck;
 
 	public DeckService() {
-		deck = new Deck();
 		DeckFactory deckFactory = new DeckFactory();
 		deck = deckFactory.createStandardDeck();
 	}
