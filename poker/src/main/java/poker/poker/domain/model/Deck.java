@@ -6,6 +6,7 @@ import java.util.List;
 public class Deck {
 	private List<Card> cards;
 
+	//Deck generator for the for suits and the card values from 2-14 where 14 would be the ace
 	public Deck() {
 		cards = new ArrayList<>();
 		for (int suit = Card.CLUBS; suit <= Card.SPADES; suit++) {
