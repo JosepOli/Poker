@@ -1,6 +1,7 @@
 package poker.poker.domain.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Deck {
@@ -14,5 +15,14 @@ public class Deck {
 				cards.add(new Card(suit, number));
 			}
 		}
-	}
+		shuffle();
+    }
+
+    public void shuffle() {
+        Collections.shuffle(cards); // To shuffle the cards on the list
+    }
+
+	public Card drawCard() {
+        return cards.remove(0);
+    }
 }
