@@ -4,6 +4,7 @@ import java.util.Collections;
 
 import poker.poker.domain.model.Card;
 import poker.poker.domain.model.Deck;
+import poker.poker.domain.model.Hand;
 import poker.poker.domain.model.factory.DeckFactory;
 
 public class DealerService {
@@ -21,5 +22,11 @@ public class DealerService {
 
 	public Card drawCard() {
 		return deck.drawCard();
+	}
+
+	public void dealCardToHand(Hand hand) {
+		DealerService deckService = new DealerService();
+		Card drawnCard = deckService.drawCard();
+		hand.addCard(drawnCard);
 	}
 }
