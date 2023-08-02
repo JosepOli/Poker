@@ -25,8 +25,7 @@ public class DealerService {
 	}
 
 	public void dealCardToHand(Hand hand) {
-		DealerService deckService = new DealerService();
-		Card drawnCard = deckService.drawCard();
+		Card drawnCard = drawCard();
 		hand.addCard(drawnCard);
 	}
 }
