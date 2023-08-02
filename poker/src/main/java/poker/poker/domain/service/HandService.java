@@ -7,31 +7,39 @@ import poker.poker.domain.model.Hand;
 
 public class HandService {
 
+	public static final int ROYAL_FLUSH = 10;
+	public static final int STRAIGHT_FLUSH = 9;
+	public static final int FOUR_OF_A_KIND = 8;
+	public static final int FULL_HOUSE = 7;
+	public static final int FLUSH = 6;
+	public static final int STRAIGHT = 5;
+	public static final int THREE_OF_A_KIND = 4;
+	public static final int TWO_PAIR = 3;
+	public static final int PAIR = 2;
+	public static final int HIGH_CARD = 1;
+
 	public int evaluateHand(Hand hand) {
-		int score;
 		sortHand(hand);
 		if (isRoyalFlush(hand))
-			score = 10;
+			return ROYAL_FLUSH;
 		else if (isStraightFlush(hand))
-			score = 9;
+			return STRAIGHT_FLUSH;
 		else if (isFourOfAKind(hand))
-			score = 8;
+			return FOUR_OF_A_KIND;
 		else if (isFullHouse(hand))
-			score = 7;
+			return FULL_HOUSE;
 		else if (isFlush(hand))
-			score = 6;
+			return FLUSH;
 		else if (isStraight(hand))
-			score = 5;
+			return STRAIGHT;
 		else if (isThreeOfAKind(hand))
-			score = 4;
+			return THREE_OF_A_KIND;
 		else if (isTwoPair(hand))
-			score = 3;
+			return TWO_PAIR;
 		else if (isPair(hand))
-			score = 2;
+			return PAIR;
 		else
-			score = 1;
-		// TODO
-		return score;
+			return HIGH_CARD;
 	}
 
 	private boolean isRoyalFlush(Hand hand) {

@@ -6,11 +6,11 @@ import poker.poker.domain.model.Card;
 import poker.poker.domain.model.Deck;
 import poker.poker.domain.model.factory.DeckFactory;
 
-public class DeckService {
+public class DealerService {
 
 	private Deck deck;
 
-	public DeckService() {
+	public DealerService() {
 		DeckFactory deckFactory = new DeckFactory();
 		deck = deckFactory.createStandardDeck();
 	}

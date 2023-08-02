@@ -6,7 +6,7 @@ import poker.poker.domain.model.Hand;
 public class GameService {
 
 	public void dealCardToHand(Hand hand) {
-		DeckService deckService = new DeckService();
+		DealerService deckService = new DealerService();
 		Card drawnCard = deckService.drawCard();
 		hand.addCard(drawnCard);
 	}
