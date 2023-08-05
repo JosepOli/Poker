@@ -45,7 +45,7 @@ public class HandService {
 	private boolean isRoyalFlush(Hand hand) {
 		List<Card> cards = hand.getCards();
 
-		if (!isValidHand(cards)) {
+		if (!isValidStandardHand(cards)) {
 			return false;
 		}
 
@@ -63,7 +63,7 @@ public class HandService {
 
 	private boolean isStraightFlush(Hand hand) {
 		List<Card> cards = hand.getCards();
-		if (!isValidHand(cards)) {
+		if (!isValidStandardHand(cards)) {
 			return false;
 		}
 
@@ -82,7 +82,7 @@ public class HandService {
 
 	private boolean isFourOfAKind(Hand hand) {
 		List<Card> cards = hand.getCards();
-		if (!isValidHand(cards)) {
+		if (!isValidStandardHand(cards)) {
 			return false;
 		}
 
@@ -108,7 +108,7 @@ public class HandService {
 
 	private boolean isFullHouse(Hand hand) {
 		List<Card> cards = hand.getCards();
-		if (!isValidHand(cards)) {
+		if (!isValidStandardHand(cards)) {
 			return false;
 		}
 		int[] counts = new int[15];
@@ -134,7 +134,7 @@ public class HandService {
 	private boolean isFlush(Hand hand) {
 		List<Card> cards = hand.getCards();
 
-		if (!isValidHand(cards)) {
+		if (!isValidStandardHand(cards)) {
 			return false;
 		}
 
@@ -152,7 +152,7 @@ public class HandService {
 
 	private boolean isStraight(Hand hand) {
 		List<Card> cards = hand.getCards();
-		if (!isValidHand(cards)) {
+		if (!isValidStandardHand(cards)) {
 			return false;
 		}
 		int expectedNumber = cards.get(0).getNumber(); // Expecting the highest number first
@@ -169,7 +169,7 @@ public class HandService {
 
 	private boolean isThreeOfAKind(Hand hand) {
 		List<Card> cards = hand.getCards();
-		if (!isValidHand(cards)) {
+		if (!isValidStandardHand(cards)) {
 			return false;
 		}
 
@@ -192,7 +192,7 @@ public class HandService {
 
 	private boolean isTwoPair(Hand hand) {
 		List<Card> cards = hand.getCards();
-		if (!isValidHand(cards)) {
+		if (!isValidStandardHand(cards)) {
 			return false;
 		}
 		int[] counts = new int[15];
@@ -217,7 +217,7 @@ public class HandService {
 
 	private boolean isPair(Hand hand) {
 		List<Card> cards = hand.getCards();
-		if (!isValidHand(cards)) {
+		if (!isValidStandardHand(cards)) {
 			return false;
 		}
 
@@ -237,7 +237,7 @@ public class HandService {
 		return hasPairOne;
 	}
 
-	private boolean isValidHand(List<Card> cards) {
+	private boolean isValidStandardHand(List<Card> cards) {
 		return cards != null && cards.size() == 5;
 	}
 
