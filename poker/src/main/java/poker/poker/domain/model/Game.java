@@ -13,4 +13,14 @@ public class Game {
 		this.players = new ArrayList<>();
 		this.deck = deck;
 	}
+	public void addPlayer(Player player) {
+		players.add(player);
+	}
+	public void removePlayer(Player player) {
+		players.remove(player);
+	}
+	
+	public List<Player> getPlayers() {
+		return players;
+	}
 }
