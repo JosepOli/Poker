@@ -41,9 +41,9 @@ public class PokerApplication {
 		// Evaluate hands and print scores
 		HandService handService = new HandService();
 		for (Player player : game.getPlayers()) {
-			int score = handService.evaluateHand(player.getHand());
+			Hand hand = handService.evaluateHand(player.getHand());
 			System.out.println("Player: " + player.getName());
-			System.out.println("Score: " + score);
+			System.out.println("Score: " + hand.getScore());
 		}
 
 		// Determine winner and print winner
