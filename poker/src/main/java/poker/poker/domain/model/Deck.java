@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Deck {
 	private List<Card> cards;
+	private Long id;
 
 	public Deck() {
 		cards = new ArrayList<>();
@@ -20,5 +21,13 @@ public class Deck {
 
 	public Card drawCard() {
 		return cards.remove(0);
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 }

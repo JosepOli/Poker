@@ -3,7 +3,7 @@ package poker.poker.domain.model;
 public class Card {
 
 	private int suit;
-
+	private Long id;
 	public final static int CLUBS = 1;
 	public final static int DIAMONDS = 2;
 	public final static int HEARTS = 3;
@@ -79,6 +79,14 @@ public class Card {
 		default:
 			return "Unknown";
 		}
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 }

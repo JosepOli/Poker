@@ -10,6 +10,7 @@ public class Game {
 	private DealerService dealerService;
 	private int currentBet;
 	private int gameState;
+	private Long id;
 
 	public Game(DealerService dealerService2) {
 		this.players = new ArrayList<>();
@@ -26,5 +27,13 @@ public class Game {
 
 	public List<Player> getPlayers() {
 		return players;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 }
