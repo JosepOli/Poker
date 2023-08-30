@@ -15,28 +15,22 @@ public class GameService {
 	public Player determineWinner(Game game) {
 		int highestScore = 0;
 		Player winner = null;
-		int tieCount = 0;
+		//int tieCount = 0;
 		List<Player> players = game.getPlayers();
 		List<Player> playersTied = new ArrayList<>();
 		for (Player player : players) {
 
-			Hand hand = handService.evaluateHand(player.getHand());
-			int score = hand.getScore();
+			int score = handService.evaluateHand(player.getHand());
 			if (score > highestScore) {
 				highestScore = score;
 				winner = player;
-				tieCount = 1;
-				playersTied.clear(); // Clear the list of tied players
-				playersTied.add(player); // Add the current player as they have the highest score for now
+				//tieCount = 1;
+				//playersTied.clear(); // Clear the list of tied players
+				//playersTied.add(player); // Add the current player as they have the highest score for now
 			} else if (score == highestScore) {
-				tieCount++;
+				//tieCount++;
 				playersTied.add(player);
 			}
-
-		}
-
-		if (tieCount > 1) {
-			winner = handService.tieBreak(playersTied);
 
 		}
 
