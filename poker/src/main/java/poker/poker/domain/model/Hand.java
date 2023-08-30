@@ -7,7 +7,7 @@ public class Hand {
 
 	private int score;
 	private Long id;
-
+	private Player player;
 	private List<Card> hand;
 
 	public Hand() {
@@ -30,16 +30,32 @@ public class Hand {
 		this.score = score;
 	}
 
+	public List<Card> getHand() {
+		return hand;
+	}
+
+	public void setHand(List<Card> hand) {
+		this.hand = hand;
+	}
+
 	public int getScore() {
 		return score;
 	}
-	
+
 	public Long getId() {
 		return id;
 	}
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Player getPlayer() {
+		return player;
+	}
+
+	public void setPlayer(Player player) {
+		this.player = player;
 	}
 
 }
