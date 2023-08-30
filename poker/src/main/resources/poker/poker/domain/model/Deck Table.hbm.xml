@@ -2,13 +2,14 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
     <class name="poker.poker.domain.model.Deck" table="Deck">
-        <id name="id" type="int" column="ID">
+        <id name="id" type="long" column="ID">
             <generator class="native"/>
         </id>
         
-        <set name="cards" table="Deck_Card" cascade="all">
+        <set name="cards" cascade="all">
             <key column="Deck_ID"/>
-            <many-to-many column="Card_ID" class="poker.poker.domain.model.Card"/>
+            <one-to-many class="poker.poker.domain.model.Card"/>
         </set>
     </class>
 </hibernate-mapping>
+

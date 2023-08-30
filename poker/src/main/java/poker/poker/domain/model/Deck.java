@@ -7,6 +7,10 @@ public class Deck {
 	private List<Card> cards;
 	private Long id;
 
+	public void setCards(List<Card> cards) {
+		this.cards = cards;
+	}
+
 	public Deck() {
 		cards = new ArrayList<>();
 	}

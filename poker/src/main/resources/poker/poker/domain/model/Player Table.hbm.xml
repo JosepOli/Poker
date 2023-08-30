@@ -2,7 +2,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
     <class name="poker.poker.domain.model.Player" table="Player">
-        <id name="id" type="int" column="ID">
+        <id name="id" type="long" column="ID">
             <generator class="native"/>
         </id>
         <property name="name" column="Name" type="string"/>

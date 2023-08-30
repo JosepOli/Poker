@@ -7,14 +7,28 @@ import poker.poker.domain.service.DealerService;
 
 public class Game {
 	private List<Player> players;
-	private DealerService dealerService;
 	private int currentBet;
 	private int gameState;
 	private Long id;
 
 	public Game(DealerService dealerService2) {
 		this.players = new ArrayList<>();
-		this.dealerService = dealerService;
+	}
+
+	public int getCurrentBet() {
+		return currentBet;
+	}
+
+	public void setCurrentBet(int currentBet) {
+		this.currentBet = currentBet;
+	}
+
+	public int getGameState() {
+		return gameState;
+	}
+
+	public void setGameState(int gameState) {
+		this.gameState = gameState;
 	}
 
 	public void addPlayer(Player player) {

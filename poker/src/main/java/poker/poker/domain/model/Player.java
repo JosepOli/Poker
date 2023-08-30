@@ -37,4 +37,18 @@ public class Player {
 		this.id = id;
 	}
 
+	public void deductBalance(int amount) {
+		if (amount > balance) {
+			throw new IllegalArgumentException("Amount exceeds balance");
+		}
+		balance -= amount;
+	}
+
+	public void addBalance(int amount) {
+		if (amount < 0) {
+			throw new IllegalArgumentException("Amount must be positive");
+		}
+		balance += amount;
+	}
+
 }

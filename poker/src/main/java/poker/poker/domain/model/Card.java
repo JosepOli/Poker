@@ -8,8 +8,18 @@ public class Card {
 	public final static int DIAMONDS = 2;
 	public final static int HEARTS = 3;
 	public final static int SPADES = 4;
-
 	private int number;
+	
+	//Database required addition
+	private Deck deck;
+
+	public Deck getDeck() {
+	    return deck;
+	}
+
+	public void setDeck(Deck deck) {
+	    this.deck = deck;
+	}
 
 	// Constructor including validation that throws an IllegalArgumentException if
 	// values are not on range

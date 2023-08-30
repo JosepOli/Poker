@@ -8,34 +8,30 @@ public class Hand {
 	private int score;
 	private Long id;
 	private Player player;
-	private List<Card> hand;
+	private List<Card> cards;
 
 	public Hand() {
-		hand = new ArrayList<>();
+		cards = new ArrayList<>();
 	}
 
 	public void addCard(Card card) {
-		hand.add(card);
+		cards.add(card);
 	}
 
 	public void removeCard(Card card) {
-		hand.remove(card);
+		cards.remove(card);
 	}
 
 	public List<Card> getCards() {
-		return hand;
+		return cards;
 	}
 
 	public void setScore(int score) {
 		this.score = score;
 	}
 
-	public List<Card> getHand() {
-		return hand;
-	}
-
 	public void setHand(List<Card> hand) {
-		this.hand = hand;
+		this.cards = hand;
 	}
 
 	public int getScore() {
