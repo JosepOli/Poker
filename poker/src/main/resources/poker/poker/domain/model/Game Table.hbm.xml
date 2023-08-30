@@ -1,0 +1,16 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="poker.poker.domain.model.Game" table="Game">
+        <id name="id" type="int" column="ID">
+            <generator class="native"/>
+        </id>
+        
+        <set name="players" table="Game_Player" cascade="all">
+            <key column="Game_ID"/>
+            <many-to-many column="Player_ID" class="poker.poker.domain.model.Player"/>
+        </set>
+        
+        <many-to-one name="deck" class="poker.poker.domain.model.Deck" column="Deck_ID" cascade="all"/>
+    </class>
+</hibernate-mapping>
