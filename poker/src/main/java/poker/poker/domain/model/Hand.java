@@ -5,7 +5,8 @@ import java.util.List;
 
 public class Hand {
 
-	int score;
+	private int score;
+	private Long id;
 
 	private List<Card> hand;
 
@@ -31,6 +32,14 @@ public class Hand {
 
 	public int getScore() {
 		return score;
+	}
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 }
